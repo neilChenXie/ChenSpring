@@ -234,5 +234,6 @@
 	<!--modules-->
 	<modules>
 		<module>sf</module>
+		<module>dbtest</module>
 	</modules>
 </project>

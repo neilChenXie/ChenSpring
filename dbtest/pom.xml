@@ -3,7 +3,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<!--root pom-->
+	<!--Root pom-->
 	<parent>
 		<groupId>com.chen</groupId>
 		<artifactId>parent</artifactId>
@@ -11,10 +11,10 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<!--module pom-->
-	<artifactId>sf</artifactId>
+	<!--Module pom-->
+	<artifactId>dbtest</artifactId>
 	<packaging>war</packaging>
-	<name>sf</name>
+	<name>dbtest</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>

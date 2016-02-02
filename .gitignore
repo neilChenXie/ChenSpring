@@ -1,3 +1,8 @@
+# general
+*.[oa] *~
+.*.sw[po]
+
+# java
 *.class
  
 # Package Files #

@@ -14,7 +14,7 @@ mvn archetype:generate \
 
 The parent pom is changed automatically, the module pom need:
 
-* add <relativePath> inside <parent>
+* add `<relativePath>` inside `<parent>`
 
 	```
 	without <relativePath>, the parent should be
@@ -22,6 +22,6 @@ The parent pom is changed automatically, the module pom need:
 	which put parent pom in localRepo
 	```
 
-* delete <groupID>, <version> and <build>, which are got from parent
+* delete `<groupID>`, `<version>` and `<build>`, which are got from parent
 
-* revise <dependencies>
+* revise `<dependencies>`

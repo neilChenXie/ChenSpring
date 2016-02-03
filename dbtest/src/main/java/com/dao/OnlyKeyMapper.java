@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.model.OnlyKey;
 
 public interface OnlyKeyMapper {
@@ -14,4 +16,6 @@ public interface OnlyKeyMapper {
     int updateByPrimaryKeySelective(OnlyKey record);
 
     int updateByPrimaryKey(OnlyKey record);
+
+	List<OnlyKey> getAll();
 }

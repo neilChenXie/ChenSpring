@@ -1,10 +1,13 @@
 package com.service;
 
+import java.util.List;
+
 import com.model.OnlyKey;
 
 public interface OnlyKeyServiceI {
 
 	public OnlyKey getOnlyKeyByID(Integer id);
-	public int addNew(OnlyKey record);
+
+	List<OnlyKey> getAll();
 
 }

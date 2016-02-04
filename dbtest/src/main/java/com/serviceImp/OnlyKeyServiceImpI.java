@@ -1,5 +1,7 @@
 package com.serviceImp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +35,8 @@ public class OnlyKeyServiceImpI implements OnlyKeyServiceI {
 	}
 
 	@Override
-	public int addNew(OnlyKey record) {
-		return 0;
+	public List<OnlyKey> getAll() {
+		return onlyKeyMapper.selectAll();
 	}
 
 }

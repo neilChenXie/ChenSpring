@@ -8,6 +8,6 @@ public interface OnlyKeyServiceI {
 
 	public OnlyKey getOnlyKeyByID(Integer id);
 
-	List<OnlyKey> getAll();
+	public List<OnlyKey> getAll();
 
 }

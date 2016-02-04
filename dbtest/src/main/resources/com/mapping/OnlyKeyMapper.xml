@@ -5,23 +5,28 @@
 		<id column="ID" property="id" jdbcType="INTEGER" />
 		<result column="who" property="who" jdbcType="VARCHAR" />
 	</resultMap>
+	
 	<sql id="Base_Column_List" >
 		ID, who
 	</sql>
+
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
 		select 
 		<include refid="Base_Column_List" />
 		from onlykey
 		where ID = #{id,jdbcType=INTEGER}
 	</select>
+
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
 		delete from onlykey
 		where ID = #{id,jdbcType=INTEGER}
 	</delete>
+
 	<insert id="insert" parameterType="com.model.OnlyKey" >
 		insert into onlykey (ID, who)
 		values (#{id,jdbcType=INTEGER}, #{who,jdbcType=VARCHAR})
 	</insert>
+
 	<insert id="insertSelective" parameterType="com.model.OnlyKey" >
 		insert into onlykey
 		<trim prefix="(" suffix=")" suffixOverrides="," >
@@ -41,15 +46,17 @@
 			</if>
 		</trim>
 	</insert>
+	
 	<update id="updateByPrimaryKeySelective" parameterType="com.model.OnlyKey" >
 		update onlykey
-		<set >
+		<set>
 			<if test="who != null" >
 				who = #{who,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
+
 	<update id="updateByPrimaryKey" parameterType="com.model.OnlyKey" >
 		update onlykey
 		set who = #{who,jdbcType=VARCHAR}
@@ -57,7 +64,7 @@
 	</update>
 
 	<!--get all-->
-	<select id="getAll" resultMap="BaseResultMap" >
+	<select id="selectAll" resultMap="BaseResultMap" >
 		select * from onlykey
 	</select>
 

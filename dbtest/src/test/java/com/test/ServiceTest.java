@@ -1,5 +1,7 @@
 package com.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,11 @@ public class ServiceTest {
 	public void test1() {
 		OnlyKey onlyKey = onlyKeyService.getOnlyKeyByID(1);
 		System.out.println(onlyKey);
+	}
+
+	@Test
+	public void getAllTest() {
+		List<OnlyKey> onlyKeyList = onlyKeyService.getAll();
+		System.out.println(onlyKeyList);
 	}
 }

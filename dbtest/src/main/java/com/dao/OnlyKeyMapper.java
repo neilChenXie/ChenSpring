@@ -17,5 +17,5 @@ public interface OnlyKeyMapper {
 
     int updateByPrimaryKey(OnlyKey record);
 
-	List<OnlyKey> getAll();
+	List<OnlyKey> selectAll();
 }

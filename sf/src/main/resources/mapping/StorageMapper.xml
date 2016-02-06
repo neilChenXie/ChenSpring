@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chen.sf.dao.StorageMapper" >
+  <resultMap id="BaseResultMap" type="com.chen.sf.model.Storage" >
+    <result column="UID" property="uid" jdbcType="INTEGER" />
+    <result column="RID" property="rid" jdbcType="INTEGER" />
+    <result column="Number" property="number" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.chen.sf.model.Storage" >
+    insert into storage (UID, RID, Number
+      )
+    values (#{uid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chen.sf.model.Storage" >
+    insert into storage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        UID,
+      </if>
+      <if test="rid != null" >
+        RID,
+      </if>
+      <if test="number != null" >
+        Number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

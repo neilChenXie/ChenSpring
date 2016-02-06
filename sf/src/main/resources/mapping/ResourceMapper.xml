@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chen.sf.dao.ResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.chen.sf.model.Resource" >
+    <id column="RID" property="rid" jdbcType="INTEGER" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RID, Name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from resource
+    where RID = #{rid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from resource
+    where RID = #{rid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chen.sf.model.Resource" >
+    insert into resource (RID, OwnerID, Name
+      )
+    values (#{rid,jdbcType=INTEGER}, #{ownerid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chen.sf.model.Resource" >
+    insert into resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        RID,
+      </if>
+      <if test="ownerid != null" >
+        OwnerID,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="ownerid != null" >
+        #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chen.sf.model.Resource" >
+    update resource
+    <set >
+      <if test="ownerid != null" >
+        OwnerID = #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RID = #{rid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chen.sf.model.Resource" >
+    update resource
+    set OwnerID = #{ownerid,jdbcType=INTEGER},
+      Name = #{name,jdbcType=VARCHAR}
+    where RID = #{rid,jdbcType=INTEGER}
+  </update>
+</mapper>

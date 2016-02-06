@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chen.sf.dao.UserTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.chen.sf.model.UserTask" >
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="UID" property="uid" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.chen.sf.model.UserTask" >
+    insert into userTask (TID, UID)
+    values (#{tid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chen.sf.model.UserTask" >
+    insert into userTask
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="uid != null" >
+        UID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

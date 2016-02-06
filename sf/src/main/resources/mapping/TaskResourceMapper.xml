@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chen.sf.dao.TaskResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.chen.sf.model.TaskResource" >
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="RID" property="rid" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.chen.sf.model.TaskResource" >
+    insert into taskResource (TID, RID)
+    values (#{tid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chen.sf.model.TaskResource" >
+    insert into taskResource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="rid != null" >
+        RID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

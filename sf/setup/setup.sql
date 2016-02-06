@@ -26,7 +26,6 @@ DROP TABLE IF EXISTS `resource`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resource` (
   `RID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `OwnerID` int(10) unsigned NOT NULL,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`RID`),
   UNIQUE KEY `IID_UNIQUE` (`RID`)
@@ -39,7 +38,7 @@ CREATE TABLE `resource` (
 
 LOCK TABLES `resource` WRITE;
 /*!40000 ALTER TABLE `resource` DISABLE KEYS */;
-INSERT INTO `resource` VALUES (1,1,'肉末'),(2,1,'茄子');
+INSERT INTO `resource` VALUES (1,'肉末'),(2,'茄子');
 /*!40000 ALTER TABLE `resource` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +79,7 @@ CREATE TABLE `task` (
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`TID`),
   UNIQUE KEY `TID_UNIQUE` (`TID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,8 +88,31 @@ CREATE TABLE `task` (
 
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
-INSERT INTO `task` VALUES (1,1,'肉末茄子');
+INSERT INTO `task` VALUES (1,1,'肉末茄子'),(2,1,'肉末豌豆');
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `taskResource`
+--
+
+DROP TABLE IF EXISTS `taskResource`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `taskResource` (
+  `TID` int(10) unsigned NOT NULL,
+  `RID` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taskResource`
+--
+
+LOCK TABLES `taskResource` WRITE;
+/*!40000 ALTER TABLE `taskResource` DISABLE KEYS */;
+INSERT INTO `taskResource` VALUES (1,1),(1,2);
+/*!40000 ALTER TABLE `taskResource` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -150,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-05 17:40:54
+-- Dump completed on 2016-02-06 16:00:09

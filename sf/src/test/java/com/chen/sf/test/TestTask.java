@@ -10,9 +10,11 @@ import com.alibaba.fastjson.JSON;
 import com.chen.sf.model.Resource;
 import com.chen.sf.model.Task;
 import com.chen.sf.model.TaskResource;
+import com.chen.sf.model.User;
 import com.chen.sf.service.ResourceService;
 import com.chen.sf.service.TaskResourceService;
 import com.chen.sf.service.TaskService;
+import com.chen.sf.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:configs/spring.xml" })
@@ -23,6 +25,9 @@ public class TestTask {
 
 	@Autowired
 	private ResourceService resourceService;
+
+	@Autowired
+	private UserService userService;
 
 	@Autowired TaskResourceService taskResourceService;
 
@@ -38,27 +43,9 @@ public class TestTask {
 	}
 
 	@Test
-	public void createTask() {
-
-		Task newT = new Task();
-		newT.setName("肉末豌豆");
-		newT.setOwnerid(1);
-
-		Integer newTID = taskService.createTask(newT);
-
-		Resource newR = new Resource();
-		newR.setName("豌豆");
-
-		Integer newRID = resourceService.createResource(newR);
-
-		TaskResource newTR = new TaskResource();
-		newTR.setTid(newTID);
-		newTR.setRid(newRID);
-
-		taskResourceService.createRow(newTR);
-
-		newTR.setRid(1);
-		taskResourceService.createRow(newTR);
+	public void testUserService() {
+		User u = userService.getUserByUsername("kilne");
+		System.out.println(JSON.toJSONString(u));
 	}
 
 }
